@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps + GenAI Learning Path - 20+ LPA Package</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --dark-secondary: #1e293b;
+            --light: #f1f5f9;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: white;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 500;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        }
+
+        .salary-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success), #059669);
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.75rem;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4), 0 0 60px rgba(16, 185, 129, 0.2);
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4), 0 0 60px rgba(16, 185, 129, 0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6), 0 0 80px rgba(16, 185, 129, 0.3);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section */
+        .section {
+            background: white;
+            border-radius: 24px;
+            padding: 3.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.15), 0 15px 15px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* Learning Path Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .phase {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .phase-number {
+            position: absolute;
+            left: -4.5rem;
+            top: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .phase h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .phase-duration {
+            display: inline-block;
+            background: var(--warning);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin: 2.5rem 0;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0.05;
+            border-radius: 0 16px 0 100%;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-left-width: 6px;
+        }
+
+        .skill-card:hover::before {
+            opacity: 0.1;
+            width: 120px;
+            height: 120px;
+        }
+
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-card h4 i {
+            font-size: 1.4rem;
+            opacity: 0.9;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-card li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            transition: color 0.2s ease;
+        }
+
+        .skill-card li:hover {
+            color: var(--text);
+        }
+
+        .skill-card li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: 900;
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        /* Resources */
+        .resource-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .resource-card h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .resource-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .project-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 40px -10px rgba(0, 0, 0, 0.3), 0 0 80px rgba(37, 99, 235, 0.3);
+        }
+
+        .project-level {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.65rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .project-card p {
+            line-height: 1.7;
+            opacity: 0.95;
+            font-size: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* Interview Prep */
+        .interview-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .interview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .interview-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* Roadmap Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: translate(-25%, -25%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.3), 0 0 60px rgba(37, 99, 235, 0.3);
+        }
+
+        .stat-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem;
+            border-radius: 24px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1.25rem 3.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            background: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        footer strong {
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+            
+            .phase-number {
+                left: -3.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .phase, .skill-card, .project-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-rocket"></i> DevOps + GenAI Roadmap
+            </div>
+            <ul class="nav-links">
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#interview">Interview Prep</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>🚀 DevOps + GenAI Master Path</h1>
+        <p>Your Complete Journey to Landing a</p>
+        <div class="salary-badge">
+            💰 20+ LPA Package
+        </div>
+        <p>6-Month Intensive Learning Program | 15 Real-World Projects | Interview Ready</p>
+    </div>
+
+    <div class="container">
+        <!-- Quick Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Months Duration</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Mini Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Skills to Master</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">LPA Target</div>
+            </div>
+        </div>
+
+        <!-- Learning Path -->
+        <div class="section" id="roadmap">
+            <h2 class="section-title">📚 Complete Learning Roadmap</h2>
+            <p class="section-subtitle">Follow this step-by-step path to become a DevOps + GenAI expert</p>
+
+            <div class="timeline">
+                <!-- Phase 1 -->
+                <div class="phase">
+                    <div class="phase-number">1</div>
+                    <h3>🎯 Foundation - Linux & Scripting</h3>
+                    <span class="phase-duration">⏱️ Week 1-3</span>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4><i class="fab fa-linux"></i> Linux Mastery</h4>
+                            <ul>
+                                <li>File system & permissions</li>
+                                <li>Process management</li>
+                                <li>Networking basics</li>
+                                <li>Package management</li>
+                                <li>System monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-code"></i> Bash Scripting</h4>
+                            <ul>
+                                <li>Shell scripting basics</li>
+                                <li>Variables & conditions</li>
+                                <li>Loops & functions</li>
+                                <li>Text processing (sed, awk)</li>
+                                <li>Automation scripts</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fab fa-python"></i> Python for DevOps</h4>
+                            <ul>
+                                <li>Python fundamentals</li>
+                                <li>File & system operations</li>
+                                <li>API interactions</li>
+                                <li>Automation scripts</li>
+                                <li>Error handling</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>📖 Learning Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://www.youtube.com/watch?v=wBp0Rb-ZJak" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> Linux Full Course (7hrs) - freeCodeCamp
+                            </a>
+                            <a href="https://www.udemy.com/course/linux-mastery/" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> Linux Mastery (Udemy)
+                            </a>
+                            <a href="https://www.learnshell.org/" target="_blank" class="resource-link">
+                                <i class="fas fa-terminal"></i> Shell Scripting
+                            </a>
+                            <a href="https://automatetheboringstuff.com/" target="_blank" class="resource-link">
+                                <i class="fab fa-python"></i> Automate with Python
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="phase">
+                    <div class="phase-number">2</div>
+                    <h3>🐳 Containerization & Orchestration</h3>
+                    <span class="phase-duration">⏱️ Week 4-6</span>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4><i class="fab fa-docker"></i> Docker</h4>
+                            <ul>
+                                <li>Docker fundamentals</li>
+                                <li>Dockerfile creation</li>
+                                <li>Docker Compose</li>
+                                <li>Multi-stage builds</li>
+                                <li>Container networking</li>
+                                <li>Volume management</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-dharmachakra"></i> Kubernetes</h4>
+                            <ul>
+                                <li>K8s architecture</li>
+                                <li>Pods & Deployments</li>
+                                <li>Services & Ingress</li>
+                                <li>ConfigMaps & Secrets</li>
+                                <li>Helm charts</li>
+                                <li>Monitoring & logging</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>📖 Learning Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://www.youtube.com/watch?v=fqMOX6JJhGo" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> Docker Full Course
+                            </a>
+                            <a href="https://www.udemy.com/course/docker-mastery/" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> Docker Mastery
+                            </a>
+                            <a href="https://kubernetes.io/docs/tutorials/" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> K8s Official Docs
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=X48VuDVv0do" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> Kubernetes Full Course
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="phase">
+                    <div class="phase-number">3</div>
+                    <h3>🔄 CI/CD & Version Control</h3>
+                    <span class="phase-duration">⏱️ Week 7-9</span>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4><i class="fab fa-git-alt"></i> Git & GitHub</h4>
+                            <ul>
+                                <li>Git fundamentals</li>
+                                <li>Branching strategies</li>
+                                <li>Merge & rebase</li>
+                                <li>GitHub Actions</li>
+                                <li>Pull requests</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-project-diagram"></i> Jenkins</h4>
+                            <ul>
+                                <li>Jenkins setup</li>
+                                <li>Pipeline as code</li>
+                                <li>Groovy scripting</li>
+                                <li>Integration plugins</li>
+                                <li>Blue Ocean</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-circle"></i> GitLab CI/CD</h4>
+                            <ul>
+                                <li>GitLab pipelines</li>
+                                <li>YAML configuration</li>
+                                <li>Auto DevOps</li>
+                                <li>Container registry</li>
+                                <li>Deployment strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>📖 Learning Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> Git & GitHub Full Course
+                            </a>
+                            <a href="https://www.jenkins.io/doc/tutorials/" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> Jenkins Tutorials
+                            </a>
+                            <a href="https://www.udemy.com/course/jenkins-from-zero-to-hero/" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> Jenkins Mastery
+                            </a>
+                            <a href="https://docs.gitlab.com/ee/ci/" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> GitLab CI/CD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="phase">
+                    <div class="phase-number">4</div>
+                    <h3>☁️ Cloud Platforms (AWS/Azure)</h3>
+                    <span class="phase-duration">⏱️ Week 10-13</span>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4><i class="fab fa-aws"></i> AWS Services</h4>
+                            <ul>
+                                <li>EC2, S3, RDS</li>
+                                <li>VPC & Networking</li>
+                                <li>IAM & Security</li>
+                                <li>Lambda & Serverless</li>
+                                <li>ECS/EKS</li>
+                                <li>CloudFormation</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fab fa-microsoft"></i> Azure Services</h4>
+                            <ul>
+                                <li>VMs & App Services</li>
+                                <li>Azure DevOps</li>
+                                <li>AKS</li>
+                                <li>Azure Functions</li>
+                                <li>ARM Templates</li>
+                                <li>Azure Monitor</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>📖 Learning Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://www.youtube.com/watch?v=SOTamWNgDKc" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> AWS Full Course - freeCodeCamp
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=3hLmDS179YE" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> AWS Tutorial (4hrs) - Simplilearn
+                            </a>
+                            <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> AWS SAA (Udemy)
+                            </a>
+                            <a href="https://learn.microsoft.com/en-us/training/azure/" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> Azure Learning Path
+                            </a>
+                            <a href="https://acloudguru.com/" target="_blank" class="resource-link">
+                                <i class="fas fa-cloud"></i> A Cloud Guru
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 5 -->
+                <div class="phase">
+                    <div class="phase-number">5</div>
+                    <h3>🏗️ Infrastructure as Code (IaC)</h3>
+                    <span class="phase-duration">⏱️ Week 14-16</span>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4><i class="fas fa-layer-group"></i> Terraform</h4>
+                            <ul>
+                                <li>HCL syntax</li>
+                                <li>Resource management</li>
+                                <li>State management</li>
+                                <li>Modules</li>
+                                <li>Workspaces</li>
+                                <li>Best practices</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-book"></i> Ansible</h4>
+                            <ul>
+                                <li>Playbook creation</li>
+                                <li>Inventory management</li>
+                                <li>Roles & variables</li>
+                                <li>Ansible Galaxy</li>
+                                <li>Configuration management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>📖 Learning Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://www.youtube.com/watch?v=7xngnjfIlK4" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> Terraform Full Course
+                            </a>
+                            <a href="https://learn.hashicorp.com/terraform" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> HashiCorp Learn
+                            </a>
+                            <a href="https://www.udemy.com/course/learn-ansible/" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> Ansible for Beginners
+                            </a>
+                            <a href="https://docs.ansible.com/ansible/latest/user_guide/" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> Ansible Docs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 6 -->
+                <div class="phase">
+                    <div class="phase-number">6</div>
+                    <h3>📊 Monitoring & Logging</h3>
+                    <span class="phase-duration">⏱️ Week 17-19</span>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4><i class="fas fa-chart-line"></i> Prometheus & Grafana</h4>
+                            <ul>
+                                <li>Metrics collection</li>
+                                <li>PromQL queries</li>
+                                <li>Alert rules</li>
+                                <li>Dashboard creation</li>
+                                <li>Exporters</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-search"></i> ELK Stack</h4>
+                            <ul>
+                                <li>Elasticsearch setup</li>
+                                <li>Logstash pipelines</li>
+                                <li>Kibana dashboards</li>
+                                <li>Log aggregation</li>
+                                <li>Search & analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>📖 Learning Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://www.youtube.com/watch?v=h4Sl21AKiDg" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> Prometheus Tutorial
+                            </a>
+                            <a href="https://grafana.com/tutorials/" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> Grafana Tutorials
+                            </a>
+                            <a href="https://www.elastic.co/training/" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> ELK Training
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 7 - GenAI -->
+                <div class="phase">
+                    <div class="phase-number">7</div>
+                    <h3>🤖 Generative AI & MLOps</h3>
+                    <span class="phase-duration">⏱️ Week 20-24</span>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4><i class="fas fa-brain"></i> GenAI Fundamentals</h4>
+                            <ul>
+                                <li>LLM basics</li>
+                                <li>Prompt engineering</li>
+                                <li>OpenAI API</li>
+                                <li>LangChain</li>
+                                <li>Vector databases</li>
+                                <li>RAG systems</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-robot"></i> MLOps</h4>
+                            <ul>
+                                <li>ML pipelines</li>
+                                <li>Model versioning</li>
+                                <li>MLflow</li>
+                                <li>Kubeflow</li>
+                                <li>Model deployment</li>
+                                <li>Monitoring ML models</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h4><i class="fas fa-server"></i> AI Infrastructure</h4>
+                            <ul>
+                                <li>GPU management</li>
+                                <li>Model serving</li>
+                                <li>API deployment</li>
+                                <li>Scaling AI apps</li>
+                                <li>Cost optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>📖 Learning Resources</h4>
+                        <div class="resource-links">
+                            <a href="https://www.youtube.com/watch?v=lG7Uxts9SXs" target="_blank" class="resource-link">
+                                <i class="fab fa-youtube"></i> Generative AI Full Course - freeCodeCamp
+                            </a>
+                            <a href="https://www.deeplearning.ai/courses/" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> DeepLearning.AI
+                            </a>
+                            <a href="https://www.coursera.org/specializations/generative-ai" target="_blank" class="resource-link">
+                                <i class="fas fa-graduation-cap"></i> GenAI Specialization
+                            </a>
+                            <a href="https://platform.openai.com/docs/introduction" target="_blank" class="resource-link">
+                                <i class="fas fa-book"></i> OpenAI Docs
+                            </a>
+                            <a href="https://python.langchain.com/docs/get_started/introduction" target="_blank" class="resource-link">
+                                <i class="fas fa-link"></i> LangChain Docs
+                            </a>
+                            <a href="https://mlflow.org/docs/latest/tutorials-and-examples/index.html" target="_blank" class="resource-link">
+                                <i class="fas fa-flask"></i> MLflow Tutorials
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini Projects Section -->
+        <div class="section" id="projects">
+            <h2 class="section-title">🚀 15 Real-World Mini Projects</h2>
+            <p class="section-subtitle">Build your portfolio with these industry-relevant projects</p>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <span class="project-level">🟢 Beginner</span>
+                    <h3>1. Automated Server Setup Script</h3>
+                    <p>Create a Bash script that automates Linux server setup with LAMP stack, security configurations, and user management.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Bash</span>
+                        <span class="tech-badge">Linux</span>
+                        <span class="tech-badge">Apache</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <span class="project-level">🟢 Beginner</span>
+                    <h3>2. Dockerized Multi-Tier App</h3>
+                    <p>Containerize a 3-tier application (frontend, backend, database) using Docker Compose with proper networking.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Docker Compose</span>
+                        <span class="tech-badge">React/Node</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <span class="project-level">🟡 Intermediate</span>
+                    <h3>3. Jenkins CI/CD Pipeline</h3>
+                    <p>Build a complete CI/CD pipeline that builds, tests, and deploys a web application to production.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Jenkins</span>
+                        <span class="tech-badge">Git</span>
+                        <span class="tech-badge">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <span class="project-level">🟡 Intermediate</span>
+                    <h3>4. Kubernetes Microservices</h3>
+                    <p>Deploy a microservices architecture on Kubernetes with service mesh, ingress controller, and auto-scaling.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Kubernetes</span>
+                        <span class="tech-badge">Helm</span>
+                        <span class="tech-badge">Istio</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <span class="project-level">🟡 Intermediate</span>
+                    <h3>5. Terraform AWS Infrastructure</h3>
+                    <p>Provision complete AWS infrastructure including VPC, EC2, RDS, S3, and Load Balancer using Terraform.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Terraform</span>
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">IaC</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <span class="project-level">🟡 Intermediate</span>
+                    <h3>6. Monitoring Stack Setup</h3>
+                    <p>Deploy Prometheus, Grafana, and AlertManager to monitor infrastructure and applications with custom dashboards.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Prometheus</span>
+                        <span class="tech-badge">Grafana</span>
+                        <span class="tech-badge">Node Exporter</span>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <span class="project-level">🟠 Advanced</span>
+                    <h3>7. GitOps with ArgoCD</h3>
+                    <p>Implement GitOps workflow using ArgoCD for automated Kubernetes deployments with rollback capabilities.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">ArgoCD</span>
+                        <span class="tech-badge">GitOps</span>
+                        <span class="tech-badge">Kubernetes</span>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card">
+                    <span class="project-level">🟠 Advanced</span>
+                    <h3>8. ELK Stack for Log Aggregation</h3>
+                    <p>Build a centralized logging system using ELK stack to collect, analyze, and visualize logs from multiple sources.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Elasticsearch</span>
+                        <span class="tech-badge">Logstash</span>
+                        <span class="tech-badge">Kibana</span>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card">
+                    <span class="project-level">🟠 Advanced</span>
+                    <h3>9. Serverless App on AWS</h3>
+                    <p>Deploy a serverless application using AWS Lambda, API Gateway, DynamoDB with CI/CD automation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Lambda</span>
+                        <span class="tech-badge">API Gateway</span>
+                        <span class="tech-badge">SAM/Serverless</span>
+                    </div>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="project-card">
+                    <span class="project-level">🟠 Advanced</span>
+                    <h3>10. Ansible Configuration Management</h3>
+                    <p>Create Ansible playbooks to manage configuration across multiple servers with roles, variables, and vault.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Ansible</span>
+                        <span class="tech-badge">YAML</span>
+                        <span class="tech-badge">Ansible Vault</span>
+                    </div>
+                </div>
+
+                <!-- Project 11 - GenAI -->
+                <div class="project-card">
+                    <span class="project-level">🔴 Expert</span>
+                    <h3>11. ChatGPT Clone with LangChain</h3>
+                    <p>Build an AI chatbot using LangChain, OpenAI API, and deploy it on Kubernetes with proper scaling.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">OpenAI</span>
+                        <span class="tech-badge">FastAPI</span>
+                        <span class="tech-badge">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Project 12 - GenAI -->
+                <div class="project-card">
+                    <span class="project-level">🔴 Expert</span>
+                    <h3>12. RAG System for Documentation</h3>
+                    <p>Create a Retrieval-Augmented Generation system using vector databases to query company documentation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">Pinecone</span>
+                        <span class="tech-badge">ChromaDB</span>
+                    </div>
+                </div>
+
+                <!-- Project 13 - MLOps -->
+                <div class="project-card">
+                    <span class="project-level">🔴 Expert</span>
+                    <h3>13. MLOps Pipeline with MLflow</h3>
+                    <p>Build end-to-end ML pipeline with model tracking, versioning, deployment, and monitoring using MLflow.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">MLflow</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">K8s</span>
+                    </div>
+                </div>
+
+                <!-- Project 14 -->
+                <div class="project-card">
+                    <span class="project-level">🔴 Expert</span>
+                    <h3>14. Multi-Cloud Deployment</h3>
+                    <p>Deploy the same application on AWS and Azure using Terraform with disaster recovery setup.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Terraform</span>
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Azure</span>
+                    </div>
+                </div>
+
+                <!-- Project 15 - GenAI + DevOps -->
+                <div class="project-card">
+                    <span class="project-level">🔴 Expert</span>
+                    <h3>15. AI-Powered DevOps Assistant</h3>
+                    <p>Create an AI chatbot that helps with DevOps tasks like generating Terraform code, Kubernetes manifests, and troubleshooting.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">GenAI</span>
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">DevOps Tools</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interview Preparation -->
+        <div class="interview-section" id="interview">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🎯 Interview Preparation</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Master these topics to ace your DevOps + GenAI interviews</p>
+
+            <div class="interview-grid">
+                <div class="interview-card">
+                    <h4>🐧 Linux & Scripting</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ File permissions</li>
+                        <li>✓ Process management</li>
+                        <li>✓ Shell scripting</li>
+                        <li>✓ System debugging</li>
+                    </ul>
+                </div>
+
+                <div class="interview-card">
+                    <h4>🐳 Docker & K8s</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Container internals</li>
+                        <li>✓ Networking models</li>
+                        <li>✓ Orchestration concepts</li>
+                        <li>✓ Troubleshooting</li>
+                    </ul>
+                </div>
+
+                <div class="interview-card">
+                    <h4>☁️ Cloud (AWS/Azure)</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ VPC & networking</li>
+                        <li>✓ IAM & security</li>
+                        <li>✓ Storage solutions</li>
+                        <li>✓ Cost optimization</li>
+                    </ul>
+                </div>
+
+                <div class="interview-card">
+                    <h4>🔄 CI/CD</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Pipeline design</li>
+                        <li>✓ Git workflows</li>
+                        <li>✓ Testing strategies</li>
+                        <li>✓ Deployment patterns</li>
+                    </ul>
+                </div>
+
+                <div class="interview-card">
+                    <h4>🏗️ Infrastructure as Code</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Terraform concepts</li>
+                        <li>✓ State management</li>
+                        <li>✓ Modules & workspaces</li>
+                        <li>✓ Best practices</li>
+                    </ul>
+                </div>
+
+                <div class="interview-card">
+                    <h4>🤖 GenAI & MLOps</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ LLM fundamentals</li>
+                        <li>✓ Prompt engineering</li>
+                        <li>✓ ML deployment</li>
+                        <li>✓ Model monitoring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px;">
+                <h3 style="margin-bottom: 1rem;">📚 Interview Resources</h3>
+                <div class="resource-links">
+                    <a href="https://github.com/bregman-arie/devops-exercises" target="_blank" class="resource-link">
+                        <i class="fab fa-github"></i> DevOps Exercises (GitHub)
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=j5Zsa_eOXeY" target="_blank" class="resource-link">
+                        <i class="fab fa-youtube"></i> DevOps Interview Questions
+                    </a>
+                    <a href="https://www.interviewbit.com/devops-interview-questions/" target="_blank" class="resource-link">
+                        <i class="fas fa-question-circle"></i> InterviewBit DevOps
+                    </a>
+                    <a href="https://www.udemy.com/course/devops-interview-questions/" target="_blank" class="resource-link">
+                        <i class="fas fa-graduation-cap"></i> Interview Prep Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="section" id="resources">
+            <h2 class="section-title">🎓 Additional Learning Resources</h2>
+
+            <div class="resource-card">
+                <h4>🎥 YouTube Channels</h4>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/@TechWorldwithNana" target="_blank" class="resource-link">
+                        <i class="fab fa-youtube"></i> TechWorld with Nana
+                    </a>
+                    <a href="https://www.youtube.com/@Fireship" target="_blank" class="resource-link">
+                        <i class="fab fa-youtube"></i> Fireship
+                    </a>
+                    <a href="https://www.youtube.com/@NetworkChuck" target="_blank" class="resource-link">
+                        <i class="fab fa-youtube"></i> NetworkChuck
+                    </a>
+                    <a href="https://www.youtube.com/@DevOpsToolkit" target="_blank" class="resource-link">
+                        <i class="fab fa-youtube"></i> DevOps Toolkit
+                    </a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h4>📚 Online Platforms</h4>
+                <div class="resource-links">
+                    <a href="https://www.udemy.com/" target="_blank" class="resource-link">
+                        <i class="fas fa-graduation-cap"></i> Udemy
+                    </a>
+                    <a href="https://www.coursera.org/" target="_blank" class="resource-link">
+                        <i class="fas fa-graduation-cap"></i> Coursera
+                    </a>
+                    <a href="https://acloudguru.com/" target="_blank" class="resource-link">
+                        <i class="fas fa-cloud"></i> A Cloud Guru
+                    </a>
+                    <a href="https://www.pluralsight.com/" target="_blank" class="resource-link">
+                        <i class="fas fa-book"></i> Pluralsight
+                    </a>
+                    <a href="https://kodekloud.com/" target="_blank" class="resource-link">
+                        <i class="fas fa-laptop-code"></i> KodeKloud
+                    </a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h4>📖 Books to Read</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li>📘 "The Phoenix Project" - Gene Kim</li>
+                    <li>📘 "The DevOps Handbook" - Gene Kim</li>
+                    <li>📘 "Site Reliability Engineering" - Google</li>
+                    <li>📘 "Kubernetes in Action" - Marko Lukša</li>
+                    <li>📘 "Terraform: Up & Running" - Yevgeniy Brikman</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h4>🎯 Certifications to Target</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li>✅ AWS Certified Solutions Architect</li>
+                    <li>✅ AWS Certified DevOps Engineer</li>
+                    <li>✅ Certified Kubernetes Administrator (CKA)</li>
+                    <li>✅ HashiCorp Certified: Terraform Associate</li>
+                    <li>✅ Azure DevOps Engineer Expert</li>
+                    <li>✅ Google Professional Cloud Architect</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🚀 Ready to Start Your Journey?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Follow this roadmap, build all 15 projects, and you'll be ready for 20+ LPA positions!
+            </p>
+            <div style="margin: 2rem 0;">
+                <h3>💡 Success Tips:</h3>
+                <ul style="list-style: none; padding: 0; text-align: left; display: inline-block; margin: 1rem auto;">
+                    <li style="padding: 0.5rem 0;">✓ Practice daily - consistency is key</li>
+                    <li style="padding: 0.5rem 0;">✓ Build projects and document them on GitHub</li>
+                    <li style="padding: 0.5rem 0;">✓ Join DevOps communities and network</li>
+                    <li style="padding: 0.5rem 0;">✓ Write technical blogs about your learnings</li>
+                    <li style="padding: 0.5rem 0;">✓ Contribute to open-source projects</li>
+                    <li style="padding: 0.5rem 0;">✓ Get certified in AWS/Azure/Kubernetes</li>
+                </ul>
+            </div>
+            <a href="#roadmap" class="cta-button">Start Learning Now! 🎯</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>DevOps + GenAI Mastery Path</strong></p>
+        <p>Your Complete Roadmap to 20+ LPA Package</p>
+        <p style="margin-top: 1rem; opacity: 0.7;">
+            <i class="fas fa-heart" style="color: #ff6b6b;"></i> Made for aspiring DevOps Engineers
+        </p>
+        <p style="margin-top: 0.5rem;">© 2025 - Keep Learning, Keep Growing! 🚀</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.phase, .skill-card, .project-card, .resource-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add progress tracking
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            console.log('Learning Progress:', Math.round(scrollPercent) + '%');
+        });
+    </script>
+</body>
+</html>
