@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    image: alpine:latest
+    environment:
+      - APP_NAME=${APP_NAME}
+      - APP_VERSION=${APP_VERSION}
+      - APP_PORT=${APP_PORT}
+    command:
+      - sh
+      - -c
+      - "echo 'App: $$APP_NAME v$$APP_VERSION on port $$APP_PORT' && sleep infinity"

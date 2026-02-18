@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Docker App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .status {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status.healthy {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        
+        button {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #5568d3;
+        }
+        
+        .messages {
+            margin-top: 30px;
+        }
+        
+        .message {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .message-content {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .message-time {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .tech-stack {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: center;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐳 Full-Stack Docker App</h1>
+        <p class="subtitle">Day 3: Docker Compose in Action</p>
+        
+        <div id="status" class="status">
+            Checking API status...
+        </div>
+        
+        <div class="input-group">
+            <input type="text" id="messageInput" placeholder="Enter your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        
+        <div class="messages" id="messages">
+            <h3>Messages:</h3>
+        </div>
+        
+        <div class="tech-stack">
+            <h3 style="margin-bottom: 10px;">Tech Stack</h3>
+            <span class="tech-badge">🎨 HTML/CSS/JS</span>
+            <span class="tech-badge">🌐 Nginx</span>
+            <span class="tech-badge">🐍 Python Flask</span>
+            <span class="tech-badge">🐘 PostgreSQL</span>
+            <span class="tech-badge">🐳 Docker Compose</span>
+        </div>
+    </div>
+    
+    <script>
+        const API_URL = 'http://localhost:5001/api';
+        
+        async function checkHealth() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                const data = await response.json();
+                
+                document.getElementById('status').className = 'status healthy';
+                document.getElementById('status').innerHTML = `
+                    ✅ <strong>Backend API is healthy!</strong> 
+                    (${data.timestamp})
+                `;
+            } catch (error) {
+                document.getElementById('status').className = 'status error';
+                document.getElementById('status').innerHTML = `
+                    ❌ <strong>Backend API is down!</strong> 
+                    (${error.message})
+                `;
+            }
+        }
+        
+        async function loadMessages() {
+            try {
+                const response = await fetch(`${API_URL}/messages`);
+                const data = await response.json();
+                
+                const messagesDiv = document.getElementById('messages');
+                messagesDiv.innerHTML = '<h3>Messages:</h3>';
+                
+                if (data.messages && data.messages.length > 0) {
+                    data.messages.forEach(msg => {
+                        messagesDiv.innerHTML += `
+                            <div class="message">
+                                <div class="message-content">${msg.content}</div>
+                                <div class="message-time">${new Date(msg.created_at).toLocaleString()}</div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    messagesDiv.innerHTML += '<p style="color: #666;">No messages yet. Be the first!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading messages:', error);
+            }
+        }
+        
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const content = input.value.trim();
+            
+            if (!content) return;
+            
+            try {
+                const response = await fetch(`${API_URL}/messages`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ content })
+                });
+                
+                if (response.ok) {
+                    input.value = '';
+                    loadMessages();
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+                alert('Failed to send message. Is the backend running?');
+            }
+        }
+        
+        // Allow Enter key to send message
+        document.getElementById('messageInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Check health and load messages on startup
+        checkHealth();
+        loadMessages();
+        
+        // Refresh every 5 seconds
+        setInterval(() => {
+            checkHealth();
+            loadMessages();
+        }, 5000);
+    </script>
+</body>
+</html>

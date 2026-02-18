@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    networks:
+      - mynetwork
+  
+  cache:
+    image: redis:alpine
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
