@@ -1,6 +1,6 @@
 # Day 4 Notes - Advanced Docker
 
-**Date:** February 19, 2026  
+**Date:** February 18, 2026  
 **Topics:** Volumes, Multi-Stage Builds, Production Best Practices
 
 ---
