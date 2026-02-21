@@ -1,39 +1,39 @@
-# Day 7: Advanced Kubernetes - Production-Ready Orchestration
+# Day 7: AWS Fundamentals - Cloud Foundation for DevOps
 
 > **Date:** February 21, 2026  
-> **Focus:** StatefulSets, Persistent Volumes, Helm, and Production Best Practices  
+> **Focus:** AWS Core Services, IAM, EC2, S3, VPC, and Cloud Deployment  
 > **Duration:** 8 hours  
-> **Goal:** Master advanced Kubernetes concepts and deploy stateful applications with persistent storage
+> **Goal:** Master AWS fundamentals and deploy cloud-based applications
 
 ---
 
 ## 📋 Learning Objectives
 
 By the end of Day 7, you will:
-- ✅ Master StatefulSets for stateful applications
-- ✅ Configure Persistent Volumes and Persistent Volume Claims
-- ✅ Use ConfigMaps and Secrets effectively
-- ✅ Deploy applications with Helm package manager
-- ✅ Implement Ingress controllers for routing
-- ✅ Set up horizontal and vertical pod autoscaling
-- ✅ Implement resource limits and quotas
-- ✅ Deploy a production-ready stateful application
+- ✅ Set up AWS Free Tier account with security best practices
+- ✅ Master IAM (Identity and Access Management)
+- ✅ Launch and manage EC2 instances
+- ✅ Use S3 for object storage and static website hosting
+- ✅ Configure VPC and networking fundamentals
+- ✅ Automate AWS tasks with AWS CLI
+- ✅ Implement cost optimization strategies
+- ✅ Deploy a complete 3-tier application on AWS
 
 ---
 
-## 🎯 Why Advanced Kubernetes Skills Matter for 20+ LPA Roles
+## 🎯 Why AWS Skills Matter for 20+ LPA Roles
 
 ### **Market Demand:**
-- 🔥 **85%** of enterprises use Kubernetes in production
-- 💰 **K8s expertise** adds 20-30% salary premium
-- 🚀 **Container orchestration** is core DevOps skill
-- 📈 **Helm & GitOps** knowledge highly valued
+- ☁️ **90%+** of enterprises use AWS or multi-cloud
+- 💰 **AWS expertise** adds 15-25% salary premium
+- 🚀 **Cloud computing** is essential DevOps skill
+- 📈 **AWS certifications** highly valued by employers
 
 ### **Career Impact:**
-- Kubernetes Administrator (CKA): **₹20-35 LPA**
-- DevOps Engineer with K8s: **₹22-42 LPA**
-- SRE with Kubernetes: **₹25-50 LPA**
-- Platform Engineer: **₹28-55 LPA**
+- Cloud DevOps Engineer: **₹18-30 LPA**
+- AWS Solutions Architect: **₹22-38 LPA**
+- Cloud SRE: **₹25-45 LPA**
+- Cloud Platform Engineer: **₹28-50 LPA**
 
 ---
 
